@@ -1,5 +1,6 @@
 # https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Mistral_v0.3_(7B)-Conversational.ipynb#scrollTo=GqwZAVbRtjWF
 
+# git clone https://github.com/r-yabyab/Finetune-codegeneration-POC
 # chmod +x unsloth.sh
 
 sudo apt-get update

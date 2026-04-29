@@ -11,11 +11,11 @@ rm miniconda.sh
 # Initialize Conda for current shell
 "$HOME/miniconda3/bin/conda" init
 
-# eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
-source ~/.bashrc
-
 # this one for aws instance
 exec bash
+
+# eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+source ~/.bashrc
 
 # Accept TOS for Anaconda repositories
 conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
