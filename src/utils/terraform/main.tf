@@ -20,6 +20,7 @@ resource "aws_instance" "my_instance_worker" {
     instance_type ="g4dn.xlarge"
   # 4vCPU, 16GB RAM, 1 NVIDIA T4 GPU
   # $0.526 per hour
+  
   # g4dn.2xlarge, 32gb, $0.752
   tags = {
     "Name" = "k8s-dashboard-dev-master"
