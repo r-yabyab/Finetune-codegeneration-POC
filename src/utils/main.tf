@@ -1,0 +1,53 @@
+provider "aws" {
+  region = "us-west-2"
+}
+
+resource "aws_instance" "my_instance_worker" {
+  # 24.04
+  # ami           = "ami-0cf2b4e024cdb6960"
+  # 22.04
+  # ami           = "ami-0606dd43116f5ed57"
+  
+  # 24.04 LTS
+  ami = "ami-05f991c49d264708f"
+
+  #this one doesn't have nvidia gpu
+  # instance_type = "t2.2xlarge"
+  # 8vCPU, 32GB RAM
+  # $0.3852 per hour
+
+    # for ml
+    instance_type ="g4dn.xlarge"
+  # 4vCPU, 16GB RAM, 1 NVIDIA T4 GPU
+  # $0.526 per hour
+  # g4dn.2xlarge, 32gb, $0.752
+  tags = {
+    "Name" = "k8s-dashboard-dev-master"
+  }
+  key_name        = "kube-server"
+  security_groups = ["k8s-dashboard-dev"]
+  root_block_device {
+    volume_size = 200
+    # volume_size = 60
+# 30 for k8s dashboard, 50 nephio, 90 for ml
+  }
+}
+
+output "Connect_to_node" {
+  value = "ssh -i kube-server.pem ubuntu@${aws_instance.my_instance_worker.public_ip}"
+  description = "Connect to node"
+}
+
+####ports (0.0.0.0/0)
+#
+# defaults 
+#
+# SSH 22
+# HTTP 80
+# HTTPS 443
+#
+# TCP 8001
+# TCP 8000
+# TCP 30000 - 32767
+# TCP 8080
+# TCP 8443
