@@ -14,6 +14,9 @@ rm miniconda.sh
 # eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 source ~/.bashrc
 
+# this one for aws instance
+exec bash
+
 # Accept TOS for Anaconda repositories
 conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
 conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
@@ -24,6 +27,9 @@ conda create --yes --name unsloth_env \
   pytorch-cuda=12.1 \
   pytorch cudatoolkit xformers \
   -c pytorch -c nvidia -c xformers
+
+# for aws instance
+conda init
 
 # Activate environment
 conda activate unsloth_env

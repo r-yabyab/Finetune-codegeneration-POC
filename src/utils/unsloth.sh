@@ -1,5 +1,7 @@
 # https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Mistral_v0.3_(7B)-Conversational.ipynb#scrollTo=GqwZAVbRtjWF
 
+# chmod +x unsloth.sh
+
 sudo apt-get update
 
 # check if has nvidia drivers
@@ -12,6 +14,7 @@ sudo ubuntu-drivers list --gpgpu    # 24.04 LTS AMI should list 535 as first
 # sudo apt install nvidia-utils-535-server
 # sudo apt install nvidia-utils-535
 sudo reboot # reboot to apply changes, could do from aws as well
+  # do ./unsloth-setup.sh for the rest or manually do the rest from here
 nvidia-smi # should show a table like thing
 # watch -n 5 nvidia-smi
 
