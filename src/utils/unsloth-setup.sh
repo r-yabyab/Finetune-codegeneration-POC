@@ -30,6 +30,7 @@ conda create --yes --name unsloth_env \
 
 # for aws instance
 conda init
+sleep 3
 
 # Activate environment
 conda activate unsloth_env
